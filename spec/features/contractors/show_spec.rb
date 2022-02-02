@@ -1,15 +1,7 @@
 require 'rails_helper'
 
-#user story
-#[ ] done
-#User Story 1, Parent(contractor) Index (x2)
-#For each parent(contractor) table
-#As a visitor
-#When I visit '/parents'(/contractors)
-#Then I see the name of each parent(contractor) record in the system
-
-RSpec.describe 'contractors index page' do
-  it 'can show names of all contractors' do
+RSpec.describe 'Contractors show page' do
+  it 'shows a single contractor' do
     contractor_1 = Contractor.create(name: "rich",
                                      licensed: true,
                                      service_cost: 40,
@@ -19,8 +11,13 @@ RSpec.describe 'contractors index page' do
                                     service_cost: 25,
                                     service_area: 2)
 
-  visit '/contractors'
+  visit "/contractors/#{contractor_1.id}"
   expect(page).to have_content(contractor_1.name)
+  expect(page).to have_content(contractor_1.licensed)
+  expect(page).to have_content(contractor_1.service_cost)
+  expect(page).to have_content(contractor_1.service_area)
+  expect(page).to have_content(contractor_1.created_at)
+  expect(page).to have_content(contractor_1.updated_at)
   expect(page).to have_content(contractor_2.name)
   end
 end
