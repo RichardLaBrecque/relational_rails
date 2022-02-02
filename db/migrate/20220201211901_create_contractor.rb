@@ -5,8 +5,8 @@ class CreateContractor < ActiveRecord::Migration[5.2]
       t.boolean :licensed
       t.integer :service_cost
       t.integer :service_area
-      t.datetime :created_at
-      t.datetime :updated_at
+
+      t.timestamps
     end
   end
 end
