@@ -1,5 +1,5 @@
 require 'rails_helper'
-RSpec.describe Neighborhood type: :model do
+RSpec.describe Neighborhood, type: :model do
   it 'exists' do
     hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
    expect(hood_1).to be_a(Neighborhood)
