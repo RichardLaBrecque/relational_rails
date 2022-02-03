@@ -3,8 +3,6 @@ class ContractorsController < ApplicationController
     @contractors = Contractor.all
   end
 
-  def new
-  end
 
   def create
     contractor = Contractor.new({
