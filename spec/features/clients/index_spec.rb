@@ -6,7 +6,7 @@ require 'rails_helper'
 # As a visitor
 # When I visit '/child_table_name'
 # Then I see each Child in the system including the Child's attributes:
-Rspec.describe 'Client index page' do
+RSpec.describe 'Client index page' do
   before (:each) do
     @contractor_1 = Contractor.create!(name: "Rich",
                                      licensed: true,
@@ -24,24 +24,41 @@ Rspec.describe 'Client index page' do
                                     licensed: true,
                                     service_cost: 55,
                                     service_area: 4)
-    @client_1 = Client.create!(name: 'Dani', recent_visit: true, required_visits_per_year: 2, contractor_id: @contractor_1)
-    @client_2 = Client.create!(name: 'Lisa', recent_visit: true, required_visits_per_year: 1, contractor_id: @contractor_2)
-    @client_3 = Client.create!(name: 'Sam', recent_visit: true, required_visits_per_year: 3, contractor_id: @contractor_3)
-    @client_4 = Client.create!(name: 'Joe', recent_visit: true, required_visits_per_year: 4, contractor_id: @contractor_4)
-    @client_5 = Client.create!(name: 'Ian', recent_visit: true, required_visits_per_year: 5, contractor_id: @contractor_1)
-    @client_6 = Client.create!(name: 'Greg', recent_visit: true, required_visits_per_year: 3, contractor_id: @contractor_2)
-    @client_7 = Client.create!(name: 'Jesse', recent_visit: true, required_visits_per_year: 4, contractor_id: @contractor_2)
-    @client_8 = Client.create!(name: 'Katy', recent_visit: true, required_visits_per_year: 3, contractor_id: @contractor_3)
+    @client_1 = @contractor_1.clients.create!(name: 'Dani', recent_visit: true, required_visits_per_year: 2)
+    @client_2 = @contractor_2.clients.create!(name: 'Lisa', recent_visit: true, required_visits_per_year: 1)
+    @client_3 = @contractor_3.clients.create!(name: 'Sam', recent_visit: true, required_visits_per_year: 3)
+    @client_4 = @contractor_4.clients.create!(name: 'Joe', recent_visit: true, required_visits_per_year: 4)
+    @client_5 = @contractor_1.clients.create!(name: 'Ian', recent_visit: true, required_visits_per_year: 5)
+    @client_6 = @contractor_2.clients.create!(name: 'Greg', recent_visit: true, required_visits_per_year: 3)
+    @client_7 = @contractor_3.clients.create!(name: 'Jesse', recent_visit: true, required_visits_per_year: 4)
+    @client_8 = @contractor_4.clients.create!(name: 'Katy', recent_visit: true, required_visits_per_year: 3)
   end
   it 'can show names of all clients' do
     visit '/clients'
-    expect(page).to have_content(@client_1)
-    expect(page).to have_content(@client_2)
-    expect(page).to have_content(@client_3)
-    expect(page).to have_content(@client_4)
-    expect(page).to have_content(@client_5)
-    expect(page).to have_content(@client_6)
-    expect(page).to have_content(@client_7)
-    expect(page).to have_content(@client_8)
+    save_and_open_page
+    expect(page).to have_content(@client_1.name)
+    expect(page).to have_content(@client_1.recent_visit)
+    expect(page).to have_content(@client_1.required_visits_per_year)
+    expect(page).to have_content(@client_1.contractor_id)
+    expect(page).to have_content(@client_1.updated_at)
+    expect(page).to have_content(@client_1.created_at)
+    expect(page).to have_content(@client_2.name)
+    expect(page).to have_content(@client_2.recent_visit)
+    expect(page).to have_content(@client_2.required_visits_per_year)
+    expect(page).to have_content(@client_2.contractor_id)
+    expect(page).to have_content(@client_2.updated_at)
+    expect(page).to have_content(@client_2.created_at)
+    expect(page).to have_content(@client_3.name)
+    expect(page).to have_content(@client_3.recent_visit)
+    expect(page).to have_content(@client_3.required_visits_per_year)
+    expect(page).to have_content(@client_3.contractor_id)
+    expect(page).to have_content(@client_3.updated_at)
+    expect(page).to have_content(@client_3.created_at)
+    expect(page).to have_content(@client_4.name)
+    expect(page).to have_content(@client_4.recent_visit)
+    expect(page).to have_content(@client_4.required_visits_per_year)
+    expect(page).to have_content(@client_4.contractor_id)
+    expect(page).to have_content(@client_4.updated_at)
+    expect(page).to have_content(@client_4.created_at)
   end
 end

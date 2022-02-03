@@ -5,6 +5,6 @@ Rails.application.routes.draw do
   get '/neighborhoods', to:'neighborhoods#index'
 
   get '/contractors', to: 'contractors#index'
-  get '/contractors/new', to: 'contractors#new'
+  get '/clients', to: 'clients#index'
 
 end
