@@ -2,8 +2,12 @@ require 'rails_helper'
 RSpec.describe Neighborhood, type: :model do
   it 'exists' do
     hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
-   expect(hood_1).to be_a(Neighborhood)
+    expect(hood_1).to be_a(Neighborhood)
   end
+
+  # describe "validations" do
+  #   it {should validate_presense_of :name}
+  # end
 
 end
 # create_table :neighborhoods do |t|
