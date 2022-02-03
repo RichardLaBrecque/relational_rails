@@ -6,5 +6,6 @@ Rails.application.routes.draw do
 
   get '/contractors', to: 'contractors#index'
   get '/clients', to: 'clients#index'
+  get '/clients/:id', to: 'clients#show'
 
 end
