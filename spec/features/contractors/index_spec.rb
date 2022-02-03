@@ -26,8 +26,7 @@ RSpec.describe 'contractors index page' do
                                     licensed: true,
                                     service_cost: 55,
                                     service_area: 4)
-
-  visit '/contractors'
+   visit '/contractors'
   expect(page).to have_content(contractor_1.name)
   expect(page).to have_content(contractor_2.name)
   expect(page).to have_content(contractor_3.name)

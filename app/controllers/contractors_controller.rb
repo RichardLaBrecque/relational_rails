@@ -15,4 +15,8 @@ class ContractorsController < ApplicationController
       contractor.save
       redirect_to '/contractors'
   end
+
+  def show
+    @contractor = Contractor.find(params[:id])
+  end
 end
