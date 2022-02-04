@@ -1,6 +1,7 @@
 class ContractorsController < ApplicationController
   def index
-    @contractors = Contractor.all
+    @contractors = Contractor.order(created_at: :desc)
+    #binding.pry
   end
 
 
