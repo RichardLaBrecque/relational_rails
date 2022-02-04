@@ -26,12 +26,13 @@ RSpec.describe 'Homes #show', type: :feature do
 
   it "displays the dowis attributes" do
 
-    visit "/homes/#{@dowis.id}"
+    visit "/houses/#{@dowis.id}"
 
     expect(page).to have_content(@dowis.family_name)
-    expect(page).to have_content(@dowis.house_id)
+    expect(page).to have_content(@dowis.id)
     expect(page).to have_content(@dowis.hos_member)
     expect(page).to have_content(@dowis.parking_spaces)
+    expect(page).to have_content(@dowis.neighborhood.name)
     expect(page).to have_content(@dowis.neighborhood_id)
     expect(page).to have_content(@dowis.created_at)
     expect(page).to have_content(@dowis.updated_at)
@@ -41,12 +42,13 @@ RSpec.describe 'Homes #show', type: :feature do
 
   it "displays the tenzin attributes" do
 
-    visit "/homes/#{@tenzin.id}"
+    visit "/houses/#{@tenzin.id}"
 
     expect(page).to have_content(@tenzin.family_name)
-    expect(page).to have_content(@tenzin.house_id)
+    expect(page).to have_content(@tenzin.id)
     expect(page).to have_content(@tenzin.hos_member)
     expect(page).to have_content(@tenzin.parking_spaces)
+    expect(page).to have_content(@tenzin.neighborhood.name)
     expect(page).to have_content(@tenzin.neighborhood_id)
     expect(page).to have_content(@tenzin.created_at)
     expect(page).to have_content(@tenzin.updated_at)
@@ -56,12 +58,13 @@ RSpec.describe 'Homes #show', type: :feature do
 
   it "displays the lemon attributes" do
 
-    visit "/homes/#{@lemon.id}"
-
+    visit "/houses/#{@lemon.id}"
+save_and_open_page
     expect(page).to have_content(@lemon.family_name)
-    expect(page).to have_content(@lemon.house_id)
+    expect(page).to have_content(@lemon.id)
     expect(page).to have_content(@lemon.hos_member)
     expect(page).to have_content(@lemon.parking_spaces)
+    expect(page).to have_content(@lemon.neighborhood.name)
     expect(page).to have_content(@lemon.neighborhood_id)
     expect(page).to have_content(@lemon.created_at)
     expect(page).to have_content(@lemon.updated_at)
