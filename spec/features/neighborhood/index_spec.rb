@@ -17,7 +17,7 @@ RSpec.describe 'Neighboorhood #index', type: :feature do
 
   it 'displays names of all neighborhoods' do
     visit '/neighborhoods'
-    save_and_open_page
+  save_and_open_page
    expect(page).to have_content(@hood_1.name)
    expect(page).to have_content(@hood_2.name)
    expect(page).to have_content(@hood_3.name)
