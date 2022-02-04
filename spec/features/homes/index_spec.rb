@@ -27,7 +27,7 @@ RSpec.describe 'Homes #index', type: :feature do
 
 
   visit '/houses'
-save_and_open_page
+
     expect(page).to have_content(@dowis.family_name)
     expect(page).to have_content(@dowis.hos_member)
     expect(page).to have_content(@dowis.parking_spaces)
