@@ -16,13 +16,13 @@ RSpec.describe 'Neighboorhood #show', type: :feature do
 
     visit "/neighborhoods/#{@hood_1.id}"
 
-     expect(page).to have_content(@hood_1.name)
-     expect(page).to have_content(@hood_1.has_pool)
-     expect(page).to have_content(@hood_1.number_of_streets)
-     expect(page).to have_content(@hood_1.created_at)
-     expect(page).to have_content(@hood_1.updated_at)
-     expect(page).not_to have_content(@hood_2.name)
-     expect(page).not_to have_content(@hood_3.name)
+   expect(page).to have_content(@hood_1.name)
+   expect(page).to have_content(@hood_1.has_pool)
+   expect(page).to have_content(@hood_1.number_of_streets)
+   expect(page).to have_content(@hood_1.created_at)
+   expect(page).to have_content(@hood_1.updated_at)
+   expect(page).not_to have_content(@hood_2.name)
+   expect(page).not_to have_content(@hood_3.name)
   end
 
   it "displays the neighborhood's attributes" do
@@ -41,7 +41,7 @@ RSpec.describe 'Neighboorhood #show', type: :feature do
   it "displays the neighborhood's attributes" do
 
     visit "/neighborhoods/#{@hood_3.id}"
-    
+
    expect(page).to have_content(@hood_3.name)
    expect(page).to have_content(@hood_3.has_pool)
    expect(page).to have_content(@hood_3.number_of_streets)
@@ -50,6 +50,5 @@ RSpec.describe 'Neighboorhood #show', type: :feature do
    expect(page).not_to have_content(@hood_1.name)
    expect(page).not_to have_content(@hood_2.name)
   end
-
 
 end
