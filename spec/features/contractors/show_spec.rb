@@ -20,5 +20,6 @@ RSpec.describe 'Contractors show page' do
   expect(page).to have_content(contractor_1.created_at)
   expect(page).to have_content(contractor_1.updated_at)
   expect(page).to_not have_content(contractor_2.name)
+  expect(page).to have_content(contractor_1.clients.count)
   end
 end
