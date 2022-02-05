@@ -1,10 +1,12 @@
-require 'rails_helper'
-RSpec.describe 'Homes #index', type: :feature do
 #   User Story 3, Child Index (x2)
 #
 # As a visitor
 # When I visit '/child_table_name'
 # Then I see each Child in the system including the Child's attributes:
+
+require 'rails_helper'
+RSpec.describe 'Homes #index', type: :feature do
+
   before :each do
     @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
     @hood_2 = Neighborhood.create!(name: 'Sad', has_pool: false, number_of_streets: 13)
@@ -23,10 +25,8 @@ RSpec.describe 'Homes #index', type: :feature do
      @sam = @hood_5.houses.create!(family_name: 'Sam', hos_member: false, parking_spaces: 3)
      @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
   end
-  it 'will list all homes and their attributes' do
-
-
-  visit '/houses'
+  it "will list all homes and their attributes" do
+    visit '/houses'
 
     expect(page).to have_content(@dowis.family_name)
     expect(page).to have_content(@dowis.hos_member)

@@ -1,10 +1,12 @@
-require 'rails_helper'
-RSpec.describe 'Homes #show', type: :feature do
 #   User Story 4, Child Show (x2)
 #
 # As a visitor
 # When I visit '/child_table_name/:id'
 # Then I see the child with that id including the child's attributes:
+
+require 'rails_helper'
+RSpec.describe 'Homes #show', type: :feature do
+
   before :each do
     @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
     @hood_2 = Neighborhood.create!(name: 'Sad', has_pool: false, number_of_streets: 13)
@@ -25,7 +27,6 @@ RSpec.describe 'Homes #show', type: :feature do
   end
 
   it "displays the dowis attributes" do
-
     visit "/houses/#{@dowis.id}"
 
     expect(page).to have_content(@dowis.family_name)
@@ -41,7 +42,6 @@ RSpec.describe 'Homes #show', type: :feature do
   end
 
   it "displays the tenzin attributes" do
-
     visit "/houses/#{@tenzin.id}"
 
     expect(page).to have_content(@tenzin.family_name)
@@ -57,9 +57,8 @@ RSpec.describe 'Homes #show', type: :feature do
   end
 
   it "displays the lemon attributes" do
-
     visit "/houses/#{@lemon.id}"
-save_and_open_page
+
     expect(page).to have_content(@lemon.family_name)
     expect(page).to have_content(@lemon.id)
     expect(page).to have_content(@lemon.hos_member)

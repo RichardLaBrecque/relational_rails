@@ -1,11 +1,12 @@
-require 'rails_helper'
-RSpec.describe 'Neighboorhood #index', type: :feature do
 # User Story 1, Parent Index (x2)
 #
 # For each parent table
 # As a visitor
 # When I visit '/parents'
 # Then I see the name of each parent record in the system
+
+require 'rails_helper'
+RSpec.describe 'Neighboorhood #index', type: :feature do
 
   before :each do
    @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
