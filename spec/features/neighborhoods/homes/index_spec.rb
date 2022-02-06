@@ -132,7 +132,7 @@ RSpec.describe 'Neighboorhood houses #index', type: :feature do
 
     expect(page).to have_content(@hood_5.name)
     expect(page).to have_content(@hood_5.id)
-save_and_open_page
+
     expect(page).to have_content(@sam.family_name)
     expect(page).to have_content(@sam.id)
     expect(page).to have_content(@sam.hos_member)
