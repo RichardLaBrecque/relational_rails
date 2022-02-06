@@ -30,6 +30,9 @@ RSpec.describe 'Neighboorhood houses #index', type: :feature do
 
     visit "/neighborhoods/#{@hood_1.id}/houses"
 
+    expect(page).to have_content(@hood_1.name)
+    expect(page).to have_content(@hood_1.id)
+
     expect(page).to have_content(@dowis.family_name)
     expect(page).to have_content(@dowis.id)
     expect(page).to have_content(@dowis.hos_member)
@@ -61,6 +64,9 @@ RSpec.describe 'Neighboorhood houses #index', type: :feature do
   it 'lists the family names and attributes for the houses in the neighborhood' do
     visit "/neighborhoods/#{@hood_2.id}/houses"
 
+    expect(page).to have_content(@hood_2.name)
+    expect(page).to have_content(@hood_2.id)
+
     expect(page).to have_content(@john.family_name)
     expect(page).to have_content(@john.id)
     expect(page).to have_content(@john.hos_member)
@@ -82,7 +88,10 @@ RSpec.describe 'Neighboorhood houses #index', type: :feature do
 
   it 'lists the family names and attributes for the houses in the neighborhood' do
     visit "/neighborhoods/#{@hood_3.id}/houses"
-save_and_open_page
+
+    expect(page).to have_content(@hood_3.name)
+    expect(page).to have_content(@hood_3.id)
+
     expect(page).to have_content(@tamara.family_name)
     expect(page).to have_content(@tamara.id)
     expect(page).to have_content(@tamara.hos_member)
@@ -95,6 +104,9 @@ save_and_open_page
 
   it 'lists the family names and attributes for the houses in the neighborhood' do
     visit "/neighborhoods/#{@hood_4.id}/houses"
+
+    expect(page).to have_content(@hood_4.name)
+    expect(page).to have_content(@hood_4.id)
 
     expect(page).to have_content(@ann.family_name)
     expect(page).to have_content(@ann.id)
@@ -118,6 +130,9 @@ save_and_open_page
   it 'lists the family names and attributes for the houses in the neighborhood' do
     visit "/neighborhoods/#{@hood_5.id}/houses"
 
+    expect(page).to have_content(@hood_5.name)
+    expect(page).to have_content(@hood_5.id)
+save_and_open_page
     expect(page).to have_content(@sam.family_name)
     expect(page).to have_content(@sam.id)
     expect(page).to have_content(@sam.hos_member)
