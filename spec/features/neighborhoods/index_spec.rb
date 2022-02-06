@@ -40,11 +40,11 @@ RSpec.describe 'Neighboorhood #index', type: :feature do
 
   it 'displays names of all neighborhoods' do
     visit '/neighborhoods'
-
-   expect(@hood_1.name).to appear_before(@hood_2.name)
-   expect(@hood_2.name).to appear_before(@hood_3.name)
-   expect(@hood_3.name).to appear_before(@hood_4.name)
-   expect(@hood_4.name).to appear_before(@hood_5.name)
+save_and_open_page
+   expect(@hood_5.name).to appear_before(@hood_4.name)
+   expect(@hood_4.name).to appear_before(@hood_3.name)
+   expect(@hood_3.name).to appear_before(@hood_2.name)
+   expect(@hood_2.name).to appear_before(@hood_1.name)
 
   end
 end
