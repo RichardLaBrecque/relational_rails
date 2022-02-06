@@ -1,5 +1,6 @@
 <h1><%= @neighborhood.name %></h1>
-<p>Has a pool:<%= @neighborhood.has_pool %></p>
-<p>Number of streets:<%= @neighborhood.number_of_streets %></p>
-<p>Date listing created:<%= @neighborhood.created_at %></p>
-<p>Date listing last updated:<%= @neighborhood.updated_at %></p>
+<p>Number of houses:  <%= @neighborhood.houses.count %></p>
+<p>Has a pool:  <%= @neighborhood.has_pool %></p>
+<p>Number of streets: <%= @neighborhood.number_of_streets %></p>
+<p>Date listing created:  <%= @neighborhood.created_at %></p>
+<p>Date listing last updated: <%= @neighborhood.updated_at %></p>
