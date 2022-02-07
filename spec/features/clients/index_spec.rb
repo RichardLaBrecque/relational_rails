@@ -61,4 +61,23 @@ RSpec.describe 'Client index page' do
     expect(page).to have_content(@client_4.updated_at)
     expect(page).to have_content(@client_4.created_at)
   end
+
+  #where to locate this test
+  it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
+    visit '/contractors'
+    click_on 'Client List'
+    expect(current_path).to eq('/clients')
+  end
+
+  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
+    visit "/contractors/#{@contractor_1.id}"
+    click_on 'Client List'
+    expect(current_path).to eq('/clients')
+  end
+
+  it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
+    visit "/clients/#{@client_1.id}"
+    click_on 'Client List'
+    expect(current_path).to eq('/clients')
+  end
 end
