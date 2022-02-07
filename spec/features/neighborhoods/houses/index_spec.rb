@@ -160,31 +160,31 @@ RSpec.describe 'Neighboorhood houses #index', type: :feature do
 
   it 'will link to the /neighborhoods/#{neighborhood.id/houses page from /neighborhoods/#{neighborhood.id' do
     visit "/neighborhoods/#{@hood_1.id}"
-    click_on "Indexed House"
+    click_on "Indexed Houses"
    expect(current_path).to eq("/neighborhoods/#{@hood_1.id}/houses")
   end
 
   it 'will link to the /neighborhoods/#{neighborhood.id/houses page from /neighborhoods/#{neighborhood.id' do
     visit "/neighborhoods/#{@hood_2.id}"
-    click_on "Indexed House"
+    click_on "Indexed Houses"
    expect(current_path).to eq("/neighborhoods/#{@hood_2.id}/houses")
   end
 
   it 'will link to the /neighborhoods/#{neighborhood.id/houses page from /neighborhoods/#{neighborhood.id' do
     visit "/neighborhoods/#{@hood_3.id}"
-    click_on "Indexed House"
+    click_on "Indexed Houses"
    expect(current_path).to eq("/neighborhoods/#{@hood_3.id}/houses")
   end
 
   it 'will link to the /neighborhoods/#{neighborhood.id/houses page from /neighborhoods/#{neighborhood.id' do
     visit "/neighborhoods/#{@hood_4.id}"
-    click_on "Indexed House"
+    click_on "Indexed Houses"
    expect(current_path).to eq("/neighborhoods/#{@hood_4.id}/houses")
   end
 
   it 'will link to the /neighborhoods/#{neighborhood.id/houses page from /neighborhoods/#{neighborhood.id' do
     visit "/neighborhoods/#{@hood_5.id}"
-    click_on "Indexed House"
+    click_on "Indexed Houses"
    expect(current_path).to eq("/neighborhoods/#{@hood_5.id}/houses")
   end
 end
