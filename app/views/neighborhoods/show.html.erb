@@ -4,3 +4,4 @@
 <p>Number of streets: <%= @neighborhood.number_of_streets %></p>
 <p>Date listing created:  <%= @neighborhood.created_at %></p>
 <p>Date listing last updated: <%= @neighborhood.updated_at %></p>
+<%= link_to "Indexed Houses", "/neighborhoods/#{@neighborhood.id}/houses" %>
