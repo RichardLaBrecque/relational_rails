@@ -4,8 +4,7 @@ class CreateNeighborhoods < ActiveRecord::Migration[5.2]
       t.string :name
       t.boolean :has_pool
       t.integer :number_of_streets
-      t.datetime :created_at
-      t.datetime :updated_at
+      t.timestamps
     end
   end
 end
