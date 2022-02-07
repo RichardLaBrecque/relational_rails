@@ -31,6 +31,7 @@ RSpec.describe 'Houses #index', type: :feature do
      @sam = @hood_5.houses.create!(family_name: 'Sam', hos_member: false, parking_spaces: 3)
      @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
   end
+  
   it "will list all homes and their attributes" do
     visit '/houses'
 
@@ -105,22 +106,21 @@ RSpec.describe 'Houses #index', type: :feature do
     expect(page).to have_content(@lemon.updated_at)
   end
 
-  it 'has a navigation bar on the top of the page that links to the houses#index' do
+  it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
     visit '/neighborhoods'
     click_on 'Houses Index'
     expect(current_path).to eq('/houses')
   end
 
-  it 'has a navigation bar on the top of the page that links to the houses#index' do
+  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
     visit "/neighborhoods/#{@hood_1.id}/houses"
     save_and_open_page
     click_on 'Houses Index'
     expect(current_path).to eq('/houses')
   end
 
-  it 'has a navigation bar on the top of the page that links to the houses#index' do
-    visit "/houses/#{@tenzin.id}"
-    save_and_open_page
+  it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
+    visit "/houses/#{@lemon.id}"
     click_on 'Houses Index'
     expect(current_path).to eq('/houses')
   end
