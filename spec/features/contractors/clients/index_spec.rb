@@ -51,4 +51,6 @@ RSpec.describe 'Contractors client index' do
     expect(page).to have_content(@client_5.updated_at)
     expect(page).to have_content(@client_5.created_at)
   end
+
+
 end
