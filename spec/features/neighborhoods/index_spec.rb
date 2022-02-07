@@ -11,8 +11,12 @@
 # When I visit the parent index,
 # I see that records are ordered by most recently created first
 # And next to each of the records I see when it was created
-
-
+#
+# User Story 9, Parent Index Link
+#
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Parent Index
 
 require 'rails_helper'
 RSpec.describe 'Neighboorhood #index', type: :feature do
@@ -60,22 +64,21 @@ RSpec.describe 'Neighboorhood #index', type: :feature do
    expect(@hood_2.name).to appear_before(@hood_1.name)
   end
 
-  it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
-    visit '/neighborhoods'
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
+  it 'has a navigation bar on the top of the houses page that links to the neighborhoods#index' do
+    visit '/houses'
+    click_on 'Neighborhood Index'
+    expect(current_path).to eq('/neighborhoods')
   end
 
-  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
+  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the neighborhoods#index' do
     visit "/neighborhoods/#{@hood_1.id}/houses"
-    save_and_open_page
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
+    click_on 'Neighborhood Index'
+    expect(current_path).to eq('/neighborhoods')
   end
 
-  it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
+  it 'has a navigation bar on the top of the houses/:id page that links to the neighborhoods#index' do
     visit "/houses/#{@lemon.id}"
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
+    click_on 'Neighborhood Index'
+    expect(current_path).to eq('/neighborhoods')
   end
 end
