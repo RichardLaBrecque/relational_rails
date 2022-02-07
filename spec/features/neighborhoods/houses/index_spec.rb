@@ -4,6 +4,12 @@
 # As a visitor
 # When I visit '/parents/:parent_id/child_table_name'
 # Then I see each Child that is associated with that Parent with each Child's attributes
+
+# User Story 10, Parent Child Index Link
+#
+# As a visitor
+# When I visit a parent show page ('/parents/:id')
+# Then I see a link to take me to that parent's `child_table_name` page ('/parents/:id/child_table_name')
 require 'rails_helper'
 RSpec.describe 'Neighboorhood houses #index', type: :feature do
 

@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get '/neighborhoods/:id', to:'neighborhoods#show'
   get '/houses/:id', to:'houses#show'
   get '/neighborhoods/:neighborhood_id/houses', to: 'neighborhood_houses#index'
-  
+
   get '/contractors', to: 'contractors#index'
   get '/clients', to: 'clients#index'
   get '/clients/:id', to: 'clients#show'

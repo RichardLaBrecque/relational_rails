@@ -4,8 +4,14 @@
 # When I visit '/child_table_name'
 # Then I see each Child in the system including the Child's attributes:
 
+# User Story 8, Child Index Link
+#
+# As a visitor
+# When I visit any page on the site
+# Then I see a link at the top of the page that takes me to the Child Index
+
 require 'rails_helper'
-RSpec.describe 'Homes #index', type: :feature do
+RSpec.describe 'Houses #index', type: :feature do
 
   before :each do
     @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
@@ -97,5 +103,25 @@ RSpec.describe 'Homes #index', type: :feature do
     expect(page).to have_content(@lemon.neighborhood_id)
     expect(page).to have_content(@lemon.created_at)
     expect(page).to have_content(@lemon.updated_at)
+  end
+
+  it 'has a navigation bar on the top of the page that links to the houses#index' do
+    visit '/neighborhoods'
+    click_on 'Houses Index'
+    expect(current_path).to eq('/houses')
+  end
+
+  it 'has a navigation bar on the top of the page that links to the houses#index' do
+    visit "/neighborhoods/#{@hood_1.id}/houses"
+    save_and_open_page
+    click_on 'Houses Index'
+    expect(current_path).to eq('/houses')
+  end
+
+  it 'has a navigation bar on the top of the page that links to the houses#index' do
+    visit "/houses/#{@tenzin.id}"
+    save_and_open_page
+    click_on 'Houses Index'
+    expect(current_path).to eq('/houses')
   end
 end
