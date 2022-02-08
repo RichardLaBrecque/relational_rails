@@ -1,0 +1,9 @@
+<h1>All houses on file</h1>
+<% @houses.each do |house| %>
+<h2>Family Name: <%= house.family_name %></h2>
+<p>Homeowners Associtation Member: <%= house.hos_member %></p>
+<p>Number of parking spaces: <%= house.parking_spaces %></p>
+<p>Neighborhood ID: <%= house.neighborhood_id %></p>
+<p>Date listing created: <%= house.created_at %></p>
+<p>Date listing last updated: <%= house.updated_at %></p>
+<% end %>

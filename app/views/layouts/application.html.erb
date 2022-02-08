@@ -10,6 +10,14 @@
   </head>
 
   <body>
+    <!-- Should we use nav bar -->
+    <nav>
+      <%= link_to "Neighborhood Index", '/neighborhoods#index' %>
+      <%= link_to "Houses Index", '/houses#index' %>
+      <%= link_to "Client List", '/clients#index' %>
+      <%= link_to "Contractor List", '/contractors#index' %>
+    </nav>
+
     <%= yield %>
   </body>
 </html>

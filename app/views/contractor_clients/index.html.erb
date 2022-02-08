@@ -1,0 +1,10 @@
+<h1> <%=@contractor.name%>'s Clients List</h1>
+
+<p><% @clients.each do |client| %></p>
+<p><h2>Client name: <%= client.name %></h2></p>
+<p>Recent visit: <%= client.recent_visit %></p>
+<p>Required Visits:<%= client.required_visits_per_year %></p>
+<p>Contractor used:<%= client.contractor_id %></p>
+<p>Last update:<%= client.updated_at %></p>
+<p>Client since:<%= client.created_at %></p>
+<%end%>
