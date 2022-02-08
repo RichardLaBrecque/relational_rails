@@ -4,7 +4,7 @@
 # When I visit any page on the site
 # Then I see a link at the top of the page that takes me to the Parent Index
 require 'rails_helper'
-RSpec.describe 'Neighboorhood #index', type: :feature do
+RSpec.describe 'Neighboorhood #index link', type: :feature do
 
   before :each do
     @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
