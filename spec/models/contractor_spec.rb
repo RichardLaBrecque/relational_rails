@@ -6,6 +6,8 @@ RSpec.describe Contractor, type: :model do
     expect(contractor).to be_a(Contractor)
   end
 
+  it {should have_many :clients}
+
   # describe "validations" do
   #   it {should validate_presence_of :name}
   #   it {should validate_presence_of :licensed}
