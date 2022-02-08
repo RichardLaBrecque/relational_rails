@@ -4,11 +4,6 @@
 # When I visit '/child_table_name'
 # Then I see each Child in the system including the Child's attributes:
 
-# User Story 8, Child Index Link
-#
-# As a visitor
-# When I visit any page on the site
-# Then I see a link at the top of the page that takes me to the Child Index
 
 require 'rails_helper'
 RSpec.describe 'Houses #index', type: :feature do
@@ -106,21 +101,4 @@ RSpec.describe 'Houses #index', type: :feature do
     expect(page).to have_content(@lemon.updated_at)
   end
 
-  it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
-    visit '/neighborhoods'
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
-  end
-
-  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
-    visit "/neighborhoods/#{@hood_1.id}/houses"
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
-  end
-
-  it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
-    visit "/houses/#{@lemon.id}"
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
-  end
 end

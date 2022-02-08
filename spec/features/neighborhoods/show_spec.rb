@@ -35,7 +35,7 @@ RSpec.describe 'Neighboorhood #show', type: :feature do
 
   it "displays the neighborhood's attributes" do
     visit "/neighborhoods/#{@hood_1.id}"
-save_and_open_page
+
    expect(page).to have_content(@hood_1.name)
    expect(page).to have_content(@hood_1.houses.count)
    expect(page).to have_content(@hood_1.has_pool)
