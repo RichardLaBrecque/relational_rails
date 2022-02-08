@@ -106,21 +106,4 @@ RSpec.describe 'Houses #index', type: :feature do
     expect(page).to have_content(@lemon.updated_at)
   end
 
-  it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
-    visit '/neighborhoods'
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
-  end
-
-  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
-    visit "/neighborhoods/#{@hood_1.id}/houses"
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
-  end
-
-  it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
-    visit "/houses/#{@lemon.id}"
-    click_on 'Houses Index'
-    expect(current_path).to eq('/houses')
-  end
 end
