@@ -12,14 +12,12 @@ class NeighborhoodsController < ApplicationController
   end
 
   def create
-    Neighborhood.create!(neighborhood_params)
+    Neighborhood.create(neighborhood_params)
     redirect_to '/neighborhoods'
   end
 
   private
     def neighborhood_params
-      params.permit(:name)
-      params.permit(:has_pool)
-      params.permit(:number_of_streets)
+      params.permit(:name, :has_pool, :number_of_streets)
     end
 end

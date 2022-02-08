@@ -34,7 +34,7 @@ describe 'Add a neighborhood' do
      @sam = @hood_5.houses.create!(family_name: 'Sam', hos_member: false, parking_spaces: 3)
      @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
     end
-    it 'I can create a new neighborhood' do
+    it 'can create a new neighborhood' do
       visit '/neighborhoods'
 
       click_link 'New Neighborhood'
