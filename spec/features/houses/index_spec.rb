@@ -81,6 +81,7 @@ RSpec.describe 'Houses #index', type: :feature do
 
   end
 end
+
 RSpec.describe 'Update Neighborhood', type: :feature do
 describe 'Update a neighborhood' do
     describe 'I can visit the neighborhood update form by clicking a link on the neighborhood#index' do
@@ -105,17 +106,19 @@ describe 'Update a neighborhood' do
     end
 
     it 'can update an existing neighborhood' do
-      visit '/houses'
 
-      click_link "Update #{@dowis.family_name} Information"
-      expect(current_path).to eq("/houses/#{@dowis.family_name}/edit")
+      visit '/houses'
+      click_link "Update #{@fleur.family_name} Information"
+
+      expect(current_path).to eq("/houses/#{@fleur.id}/edit")
     end
 
-    xit 'can update an existing neighborhood' do
-      visit "/neighborhoods/#{@hood_2}/houses"
+    it 'can update an existing neighborhood' do
 
+      visit "/neighborhoods/#{@hood_2.id}/houses"
       click_link "Update #{@sasha.family_name} Information"
-      expect(current_path).to eq("/houses/#{@sasha.family_name}/edit")
+
+      expect(current_path).to eq("/houses/#{@sasha.id}/edit")
 
     end
   end
