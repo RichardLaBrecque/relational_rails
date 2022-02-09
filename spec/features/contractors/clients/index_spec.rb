@@ -37,7 +37,7 @@ RSpec.describe 'Contractors client index' do
   it 'lists clients for a specific contractor' do
     #binding.pry
     visit "/contractors/#{@contractor_1.id}/clients"
-    #save_and_open_page
+
     expect(page).to have_content(@client_1.name)
     expect(page).to have_content(@client_1.recent_visit)
     expect(page).to have_content(@client_1.required_visits_per_year)

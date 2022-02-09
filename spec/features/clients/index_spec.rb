@@ -40,7 +40,7 @@ RSpec.describe 'Client index page' do
   end
   it 'can show names of all true clients' do
     visit '/clients'
-    #save_and_open_page
+
     expect(page).to have_content(@client_1.name)
     expect(page).not_to have_content(@client_2.name)
     expect(page).to have_content(@client_3.name)

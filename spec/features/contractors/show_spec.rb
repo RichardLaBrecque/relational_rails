@@ -30,7 +30,7 @@ RSpec.describe 'Contractors show page' do
   it 'shows a single contractor' do
 
   visit "/contractors/#{@contractor_1.id}"
-  save_and_open_page
+
   expect(page).to have_content(@contractor_1.name)
   expect(page).to have_content(@contractor_1.licensed)
   expect(page).to have_content(@contractor_1.service_cost)

@@ -1,0 +1,13 @@
+<%= form_with url: '/neighborhoods', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :has_pool, "The neighborhood has a pool: " %>
+  <%= form.select :has_pool, [true, false] %>
+
+
+  <%= form.label :number_of_streets %>
+  <%= form.number_field :number_of_streets %>
+
+  <%= form.submit 'Create Neighborhood' %>
+  <% end %>

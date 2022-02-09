@@ -35,7 +35,7 @@ RSpec.describe 'Client show page' do
 
   it "has a client show page" do
     visit "/clients/#{@client_1.id}"
-    save_and_open_page
+
     expect(page).to have_content(@client_1.name)
     expect(page).to have_content(@client_1.recent_visit)
     expect(page).to have_content(@client_1.required_visits_per_year)
