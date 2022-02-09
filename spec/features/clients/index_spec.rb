@@ -40,17 +40,26 @@ RSpec.describe 'Client index page' do
   end
   it 'can show names of all true clients' do
     visit '/clients'
-    save_and_open_page
+    #save_and_open_page
     expect(page).to have_content(@client_1.name)
-
     expect(page).not_to have_content(@client_2.name)
-
     expect(page).to have_content(@client_3.name)
-
     expect(page).not_to have_content(@client_4.name)
-  
+
   end
 
+  # User Story 18, Child Update From Childs Index Page (x1)
+
+  # As a visitor
+  # When I visit the `child_table_name` index page or a parent `child_table_name` index page
+  # Next to every child, I see a link to edit that child's info
+  # When I click the link
+  # I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
+  it 'has a link to update each client' do
+    visit '/clients'
+    click_on "Update #{@client_1.name}"
+    expect(current_path).to eq("/clients/#{@client_1.id}/edit")
+  end
   #where to locate this test
   # it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
   #   visit '/contractors'
