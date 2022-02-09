@@ -1,9 +1,11 @@
-<%= form_with url: '/clients', method: :post, local: true do |form| %>
+
+<%= form_with url: "/contractors/#{@contractor.id}/clients", method: :post, local: true do |form| %>
 <%= form.label :name %>
 <%= form.text_field :name %>
 <%= form.label :recent_visit %>
 <%= form.text_field :recent_visit %>
 <%= form.label :required_visits_per_year %>
 <%= form.text_field :required_visits_per_year %>
+<%= form.hidden_field :contractor_id, :value => params[:id] %>
 <%= form.submit 'Create Client' %>
 <% end %>

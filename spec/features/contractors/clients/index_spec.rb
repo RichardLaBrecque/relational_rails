@@ -51,27 +51,4 @@ RSpec.describe 'Contractors client index' do
     expect(page).to have_content(@client_5.updated_at)
     expect(page).to have_content(@client_5.created_at)
   end
-
-#   User Story 13, Parent Child Creation (x2)
-#
-# As a visitor
-# When I visit a Parent Childs Index page
-# Then I see a link to add a new adoptable child for that parent "Create Child"
-# When I click the link
-# I am taken to '/parents/:parent_id/child_table_name/new' where I see a form to add a new adoptable child
-# When I fill in the form with the child's attributes:
-# And I click the button "Create Child"
-# Then a `POST` request is sent to '/parents/:parent_id/child_table_name',
-# a new child object/row is created for that parent,
-# and I am redirected to the Parent Childs Index page where I can see the new child listed
-  describe 'can add clients from the contractors client list' do
-    it 'has a link to add new clients for a contractor' do
-      visit "/contractors/#{@contractor_1.id}/clients"
-      click_on "Create Client"
-      expect(current_path).to eq("/contractors/#{@contractor_1.id}/clients/new")
-    end
-
-    it 'can create new clients with the form' do
-    end
-  end
 end
