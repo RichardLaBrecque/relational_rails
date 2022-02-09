@@ -1,0 +1,15 @@
+<%= form_with url: "/houses/#{@house.id}", method: :patch, local: true do |form| %>
+<%= form.label :family_name, "Family Name" %>
+<%= form.text_field :family_name, :value => @house.family_name %>
+
+<%= form.label :hos_member, "Family is a HOA menmer: " %>
+<%= form.select :hos_member, [true, false], :value => @house.hos_member %>
+
+<%= form.label "Number of parking spaces" %>
+<%= form.number_field :parking_spaces, :value => @house.parking_spaces %>
+
+<%= form.label "Neighborhood id" %>
+<%= form.number_field :neighborhood_id, :value => @house.neighborhood_id %>
+
+<%= form.submit 'Sumbit updates for House' %>
+<% end %>

@@ -7,3 +7,4 @@
 <p>Neighborhood ID: <%= @house.neighborhood_id %></p>
 <p>Date listing created: <%= @house.created_at %></p>
 <p>Date listing last updated: <%= @house.updated_at %></p>
+<%= link_to "Update House Information", "/houses/#{@house.id}/edit" %>

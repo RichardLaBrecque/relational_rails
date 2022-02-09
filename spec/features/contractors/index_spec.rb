@@ -46,7 +46,7 @@ RSpec.describe 'contractors index page' do
 
   it 'shows contractors ordered by created_at' do
     visit '/contractors'
-    save_and_open_page
+
   expect(@contractor_4.name).to appear_before(@contractor_3.name)
   expect(@contractor_3.name).to appear_before(@contractor_2.name)
   expect(@contractor_2.name).to appear_before(@contractor_1.name)
@@ -57,24 +57,36 @@ RSpec.describe 'contractors index page' do
 
 
   end
-
-  it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
+  # User Story 17, Parent Update From Parent Index Page (x2)
+  #
+  # As a visitor
+  # When I visit the parent index page
+  # Next to every parent, I see a link to edit that parent's info
+  # When I click the link
+  # I should be taken to that parents edit page where I can update its information just like in User Story 4
+  it 'has a link to the edit contractors page with each contractor' do
     visit '/contractors'
-    click_on 'Contractor List'
-    expect(current_path).to eq('/contractors')
+    click_on "Update #{@contractor_1.name}"
+    expect(current_path).to eq("/contractors/#{@contractor_1.id}/edit")
   end
 
-  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
-    visit "/contractors/#{@contractor_1.id}"
-    click_on 'Contractor List'
-    expect(current_path).to eq('/contractors')
-  end
-
-  it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
-    visit "/clients/#{@client_1.id}"
-    click_on 'Contractor List'
-    expect(current_path).to eq('/contractors')
-  end
+  # it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
+  #   visit '/contractors'
+  #   click_on 'Contractor List'
+  #   expect(current_path).to eq('/contractors')
+  # end
+  #
+  # it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
+  #   visit "/contractors/#{@contractor_1.id}"
+  #   click_on 'Contractor List'
+  #   expect(current_path).to eq('/contractors')
+  # end
+  #
+  # it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
+  #   visit "/clients/#{@client_1.id}"
+  #   click_on 'Contractor List'
+  #   expect(current_path).to eq('/contractors')
+  # end
 
 
 end

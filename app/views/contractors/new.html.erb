@@ -1,0 +1,12 @@
+
+<%= form_with url: '/contractors', method: :post, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+  <%= form.label :licensed %>
+  <%= form.text_field :licensed %>
+  <%= form.label :service_cost %>
+  <%= form.text_field :service_cost %>
+  <%= form.label :service_area %>
+  <%= form.text_field :service_area %>
+  <%= form.submit 'Create Contractor' %>
+<% end %>

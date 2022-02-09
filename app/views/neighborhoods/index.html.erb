@@ -3,4 +3,7 @@
  <% @neighborhoods.each do |neighborhood| %>
 
  <h3><%= neighborhood.name %>: created at: <%= neighborhood.created_at %></h3>
+ <h5><%= link_to "Update #{neighborhood.name} Information", "/neighborhoods/#{neighborhood.id}/edit" %></h5>
  <% end %>
+
+  <h3><%= link_to 'New Neighborhood', '/neighborhoods/new' %></h3>

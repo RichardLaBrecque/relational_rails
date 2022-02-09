@@ -1,0 +1,13 @@
+<%= form_with url: "/neighborhoods/#{@neighborhood.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name, "Name " %>
+  <%= form.text_field :name, :value => @neighborhood.name %>
+
+  <%= form.label :has_pool, "The neighborhood has a pool: " %>
+  <%= form.select :has_pool, [true, false], :value => @neighborhood.has_pool %>
+
+
+  <%= form.label :number_of_streets %>
+  <%= form.number_field :number_of_streets, :value => @neighborhood.number_of_streets %>
+
+  <%= form.submit 'Sumbit updates for Neighborhood' %>
+  <% end %>

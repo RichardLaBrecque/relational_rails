@@ -1,9 +1,15 @@
 require 'rails_helper'
-# User Story 4, Child Show (x2)
+# User Story 14, Child Update (x2)
 #
 # As a visitor
-# When I visit '/child_table_name/:id'
-# Then I see the child with that id including the child's attributes:
+# When I visit a Child Show page
+# Then I see a link to update that Child "Update Child"
+# When I click the link
+# I am taken to '/child_table_name/:id/edit' where I see a form to edit the child's attributes:
+# When I click the button to submit the form "Update Child"
+# Then a `PATCH` request is sent to '/child_table_name/:id',
+# the child's data is updated,
+# and I am redirected to the Child Show page where I see the Child's updated information
 
 RSpec.describe 'Client show page' do
   before (:each) do
@@ -33,15 +39,19 @@ RSpec.describe 'Client show page' do
     @client_8 = @contractor_4.clients.create!(name: 'Katy', recent_visit: true, required_visits_per_year: 3)
   end
 
-  it "has a client show page" do
+  it 'has a link to update client info' do
     visit "/clients/#{@client_1.id}"
+    click_on "Update Client"
+    expect(current_path).to eq("/clients/#{@client_1.id}/edit")
+  end
 
-    expect(page).to have_content(@client_1.name)
-    expect(page).to have_content(@client_1.recent_visit)
-    expect(page).to have_content(@client_1.required_visits_per_year)
-    expect(page).to have_content(@client_1.contractor_id)
-    expect(page).to have_content(@client_1.updated_at)
-    expect(page).to have_content(@client_1.created_at)
-
+  it 'has a form to update clients' do
+    visit "/clients/#{@client_1.id}/edit"
+    fill_in 'Name', with: "Steve"
+    fill_in "recent_visit", with: "True"
+    fill_in "required_visits_per_year", with: 35
+    click_on 'Update Client'
+    expect(current_path).to eq('/clients')
+    expect(page).to have_content("Steve")
   end
 end
