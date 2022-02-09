@@ -21,6 +21,6 @@ class ClientsController < ApplicationController
         })
 
         client.save
-        redirect_to '/contractors'
+        redirect_to '/clients'
   end
 end
