@@ -6,6 +6,6 @@
 <%= form.text_field :recent_visit %>
 <%= form.label :required_visits_per_year %>
 <%= form.text_field :required_visits_per_year %>
-<%= form.hidden_field :contractor_id, :value => params[:id] %>
+<%= form.hidden_field :contractor_id, :value => @contractor.id %>
 <%= form.submit 'Create Client' %>
 <% end %>
