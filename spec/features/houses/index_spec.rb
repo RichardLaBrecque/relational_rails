@@ -34,7 +34,7 @@ RSpec.describe 'Houses #index', type: :feature do
 
   it "will list all homes and their attributes" do
     visit '/houses'
-save_and_open_page
+
     expect(page).not_to have_content(@dowis.family_name)
 
 
@@ -78,11 +78,7 @@ save_and_open_page
 
 
     expect(page).not_to have_content(@lemon.family_name)
-  #   expect(page).not_to have_content(@lemon.hos_member)
-  #   expect(page).not_to have_content(@lemon.parking_spaces)
-  #   expect(page).not_to have_content(@lemon.neighborhood_id)
-  #   expect(page).not_to have_content(@lemon.created_at)
-  #   expect(page).not_to have_content(@lemon.updated_at)
+
   end
 
 end
