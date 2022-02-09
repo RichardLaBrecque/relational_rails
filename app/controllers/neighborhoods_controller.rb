@@ -22,10 +22,10 @@ class NeighborhoodsController < ApplicationController
   end
 
   def destroy
-    require "pry"; binding.pry
     neighborhood = Neighborhood.find(params[:id])
-    Neighborhood.destroy(params[:id])
-    redirect_to "/neighborhoods/#{neighborhood.id}"
+    neighborhood.houses.destroy_all
+    neighborhood.destroy
+    redirect_to "/neighborhoods"
   end
 
   def create
