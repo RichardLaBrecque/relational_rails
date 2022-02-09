@@ -11,6 +11,16 @@ class NeighborhoodsController < ApplicationController
   def new
   end
 
+  def edit
+    @neighborhood = Neighborhood.find(params[:id])
+  end
+
+  def update
+    neighborhood = Neighborhood.find(params[:id])
+    neighborhood.update(neighborhood_params)
+    redirect_to "/neighborhoods/#{neighborhood.id}"
+  end
+
   def create
     Neighborhood.create(neighborhood_params)
     redirect_to '/neighborhoods'
@@ -20,4 +30,11 @@ class NeighborhoodsController < ApplicationController
     def neighborhood_params
       params.permit(:name, :has_pool, :number_of_streets)
     end
-end
+  end
+
+
+# def update
+#    artist = Artist.find(params[:id])
+#    artist.update(artist_params)
+#    redirect_to '/artists'
+#  end

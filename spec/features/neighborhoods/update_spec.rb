@@ -33,21 +33,23 @@ describe 'Update a neighborhood' do
      @sam = @hood_5.houses.create!(family_name: 'Sam', hos_member: false, parking_spaces: 3)
      @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
     end
-    it 'can update an existing neighborhood' do
 
-      visit "/neighborhoods/#{@hood_4}"
+    it 'can update an existing neighborhood' do
+      visit "/neighborhoods/#{@hood_4.id}"
+
 
       click_link 'Update Neighborhood'
 
-      expect(current_path).to eq("/neighborhoods/#{@hood_4}/update")
+      expect(current_path).to eq("/neighborhoods/#{@hood_4.id}/edit")
 
       fill_in 'name', with: 'Sunrise Downer'
 
-      click_on 'Update Neighborhood'
+      click_on 'Sumbit updates for Neighborhood'
 
-      expect(current_path).to eq('/neighborhoods')
+      expect(current_path).to eq("/neighborhoods/#{@hood_4.id}")
+
       expect(page).to have_content('Sunrise Downer')
-      end
     end
   end
-  end
+end
+end

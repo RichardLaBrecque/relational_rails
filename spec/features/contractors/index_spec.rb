@@ -46,7 +46,7 @@ RSpec.describe 'contractors index page' do
 
   it 'shows contractors ordered by created_at' do
     visit '/contractors'
-    save_and_open_page
+
   expect(@contractor_4.name).to appear_before(@contractor_3.name)
   expect(@contractor_3.name).to appear_before(@contractor_2.name)
   expect(@contractor_2.name).to appear_before(@contractor_1.name)

@@ -58,21 +58,4 @@ RSpec.describe 'Neighboorhood #index', type: :feature do
    expect(@hood_2.name).to appear_before(@hood_1.name)
   end
 
-  it 'has a navigation bar on the top of the houses page that links to the neighborhoods#index' do
-    visit '/houses'
-    click_on 'Neighborhood Index'
-    expect(current_path).to eq('/neighborhoods')
-  end
-
-  it 'has a navigation bar on the top of the neighborhoods/:id page that links to the neighborhoods#index' do
-    visit "/neighborhoods/#{@hood_1.id}/houses"
-    click_on 'Neighborhood Index'
-    expect(current_path).to eq('/neighborhoods')
-  end
-
-  it 'has a navigation bar on the top of the houses/:id page that links to the neighborhoods#index' do
-    visit "/houses/#{@lemon.id}"
-    click_on 'Neighborhood Index'
-    expect(current_path).to eq('/neighborhoods')
-  end
 end

@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   get '/neighborhoods', to:'neighborhoods#index'
   get '/houses', to:'houses#index'
   get '/neighborhoods/new', to:'neighborhoods#new'
-
   get '/neighborhoods/:id', to:'neighborhoods#show'
+  get '/neighborhoods/:id/edit', to:'neighborhoods#edit'
+  patch '/neighborhoods/:id', to: 'neighborhoods#update'
   get '/houses/:id', to:'houses#show'
   get '/neighborhoods/:neighborhood_id/houses', to: 'neighborhood_houses#index'
   post '/neighborhoods', to:'neighborhoods#create'

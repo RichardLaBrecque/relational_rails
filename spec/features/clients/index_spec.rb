@@ -35,7 +35,7 @@ RSpec.describe 'Client index page' do
   end
   it 'can show names of all clients' do
     visit '/clients'
-    save_and_open_page
+  
     expect(page).to have_content(@client_1.name)
     expect(page).to have_content(@client_1.recent_visit)
     expect(page).to have_content(@client_1.required_visits_per_year)
