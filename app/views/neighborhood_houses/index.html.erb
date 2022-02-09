@@ -9,5 +9,7 @@
 <p>Neighborhood ID: <%= house.neighborhood_id %></p>
 <p>Date listing created: <%= house.created_at %></p>
 <p>Date listing last updated: <%= house.updated_at %></p>
+<h5><%= link_to "Update #{house.family_name} Information", "/houses/#{house.id}/edit" %></h5>
 <% end %>
 <p><%= link_to "Create New House Listing", "/neighborhoods/#{@neighborhood.id}/houses/new" %></p>
+<p><%= link_to "Sort houses in alphabetical order", "/neighborhoods/#{@neighborhood.id}/houses?sort=name" %></p>

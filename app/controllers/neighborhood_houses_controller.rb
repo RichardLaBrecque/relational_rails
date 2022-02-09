@@ -1,7 +1,12 @@
 class NeighborhoodHousesController < ApplicationController
+
   def index
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
-    @neighborhood_houses = @neighborhood.houses
+    if params[:sort] == "name"
+      @neighborhood_houses = @neighborhood.houses.order(:family_name)
+    else
+      @neighborhood_houses = @neighborhood.houses
+    end
   end
 
   def new

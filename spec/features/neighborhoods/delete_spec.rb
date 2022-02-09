@@ -1,22 +1,7 @@
-## User Story 12, Parent Update (x2)
-#
-# As a visitor
-# When I visit a parent show page
-# Then I see a link to update the parent "Update Parent"
-# When I click the link "Update Parent"
-# Then I am taken to '/parents/:id/edit' where I  see a form to edit the parent's attributes:
-# When I fill out the form with updated information
-# And I click the button to submit the form
-# Then a `PATCH` request is sent to '/parents/:id',
-# the parent's info is updated,
-# and I am redirected to the Parent's Show page where I see the parent's updated info
-
-
-
 require 'rails_helper'
-RSpec.describe 'Update Neighborhood', type: :feature do
-describe 'Update a neighborhood' do
-    describe 'I can visit the neighborhood update form by clicking a link on the neighborhood#show' do
+RSpec.describe 'Delete Neighborhood', type: :feature do
+describe 'Delete a neighborhood' do
+    describe 'I can visit the neighborhood show page and delete the neighborhood by clicking the delete button' do
 
     before :each do
       @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
@@ -37,21 +22,15 @@ describe 'Update a neighborhood' do
      @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
     end
 
-    it 'can update an existing neighborhood' do
+    it 'can delete an existing neighborhood' do
       visit "/neighborhoods/#{@hood_4.id}"
 
 
-      click_link 'Update Neighborhood'
-
-      expect(current_path).to eq("/neighborhoods/#{@hood_4.id}/edit")
-
-      fill_in 'name', with: 'Sunrise Downer'
-
-      click_on 'Sumbit updates for Neighborhood'
+      click_button "Delete #{@hood_4.name}"
 
       expect(current_path).to eq("/neighborhoods/#{@hood_4.id}")
-
-      expect(page).to have_content('Sunrise Downer')
+      expect(page).to_not have_content(@hood_4.name)
+      expect(page).to_not have_button('Delete')
     end
   end
 end
