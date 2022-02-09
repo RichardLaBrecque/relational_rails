@@ -9,7 +9,12 @@ Rails.application.routes.draw do
 
   get '/contractors', to: 'contractors#index'
   get '/clients', to: 'clients#index'
-  get '/clients/:id', to: 'clients#show'
-  get '/contractors/:id', to: 'contractors#show'
+  get '/contractors/new', to: 'contractors#new'
+  get '/contractors/:id/clients/new', to: 'contractor_clients#new'
   get "/contractors/:id/clients", to: 'contractor_clients#index'
+  post '/contractors', to: 'contractors#create'
+  get '/contractors/:id/edit', to: 'contractors#edit'
+  get '/clients/:id', to: 'clients#show'
+  patch '/contractors/:id', to: 'contractors#update'
+  get '/contractors/:id', to: 'contractors#show'
 end

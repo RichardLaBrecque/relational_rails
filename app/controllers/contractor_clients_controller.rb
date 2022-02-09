@@ -4,4 +4,7 @@ class ContractorClientsController < ApplicationController
     @contractor = Contractor.find(params[:id])
     @clients = @contractor.clients
   end
+
+  def new
+  end
 end

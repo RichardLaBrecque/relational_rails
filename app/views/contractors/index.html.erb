@@ -2,3 +2,5 @@
 <% @contractors.each do |contractor| %>
   <h3> Contractor:<%= contractor.name %> Created at: <%= contractor.created_at %></h3>
 <%end%>
+
+<%= link_to "New Contractor", '/contractors/new' %>

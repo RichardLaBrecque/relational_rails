@@ -1,0 +1,9 @@
+<%= form_with url: '/clients', method: :post, local: true do |form| %>
+<%= form.label :name %>
+<%= form.text_field :name %>
+<%= form.label :recent_visit %>
+<%= form.text_field :recent_visit %>
+<%= form.label :required_visits_per_year %>
+<%= form.text_field :required_visits_per_year %>
+<%= form.submit 'Create Client' %>
+<% end %>
