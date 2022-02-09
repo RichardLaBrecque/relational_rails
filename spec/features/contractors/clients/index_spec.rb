@@ -70,6 +70,6 @@ RSpec.describe 'Contractors client index' do
     visit "/contractors/#{@contractor_1.id}/clients"
     click_on "Alphabetical Order"
     save_and_open_page
-    expect(@client_5.name).to appear_before(@client_1.name)
+    expect(@client_5.name).to appear_before(@client_.name)
   end
 end
