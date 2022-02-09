@@ -27,14 +27,7 @@ class NeighborhoodsController < ApplicationController
   end
 
   private
-    def neighborhood_params
-      params.permit(:name, :has_pool, :number_of_streets)
-    end
+  def neighborhood_params
+    params.permit(:name, :has_pool, :number_of_streets)
   end
-
-
-# def update
-#    artist = Artist.find(params[:id])
-#    artist.update(artist_params)
-#    redirect_to '/artists'
-#  end
+end
