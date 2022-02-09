@@ -7,3 +7,4 @@
 <p>Last update: <%= @contractor.updated_at %></p>
 <p> client count: <%= @contractor.clients.count %></p>
 <%= link_to "Update Contractor", "/contractors/#{@contractor.id}/edit" %>
+<%= link_to "Delete #{@contractor.name}", "/contractors/#{@contractor.id}", method: :delete %>
