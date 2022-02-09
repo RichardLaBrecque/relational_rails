@@ -1,6 +1,7 @@
 class ClientsController < ApplicationController
   def index
-    @clients = Client.all
+    @clients = Client.where("recent_visit = True")
+    #binding.pry
   end
 
   def show
@@ -18,7 +19,6 @@ class ClientsController < ApplicationController
         recent_visit: params[:recent_visit],
         required_visits_per_year: params[:required_visits_per_year],
         })
-        binding.pry
 
         client.save
         redirect_to '/contractors'
