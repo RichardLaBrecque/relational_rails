@@ -1,20 +1,18 @@
-# User Story 11, Parent Creation (x2)
+# User Story 14, Child Update (x2)
 #
 # As a visitor
-# When I visit the Parent Index page
-# Then I see a link to create a new Parent record, "New Parent"
-# When I click this link
-# Then I am taken to '/parents/new' where I  see a form for a new parent record
-# When I fill out the form with a new parent's attributes:
-# And I click the button "Create Parent" to submit the form
-# Then a `POST` request is sent to the '/parents' route,
-# a new parent record is created,
-# and I am redirected to the Parent Index page where I see the new Parent displayed.
-
+# When I visit a Child Show page
+# Then I see a link to update that Child "Update Child"
+# When I click the link
+# I am taken to '/child_table_name/:id/edit' where I see a form to edit the child's attributes:
+# When I click the button to submit the form "Update Child"
+# Then a `PATCH` request is sent to '/child_table_name/:id',
+# the child's data is updated,
+# and I am redirected to the Child Show page where I see the Child's updated information
 require 'rails_helper'
-RSpec.describe 'New Neighborhood', type: :feature do
-describe 'Add a neighborhood' do
-    describe 'I can visit the new neighborhood form by clicking a link on the index' do
+RSpec.describe 'Update Houses', type: :feature do
+describe 'Update a house' do
+    describe 'I can visit the house update form by clicking a link on the house#show' do
 
     before :each do
       @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
@@ -34,22 +32,23 @@ describe 'Add a neighborhood' do
      @sam = @hood_5.houses.create!(family_name: 'Sam', hos_member: false, parking_spaces: 3)
      @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
     end
-    it 'can create a new neighborhood' do
-      visit '/neighborhoods'
 
-      click_link 'New Neighborhood'
+    it 'can update an existing house' do
+      visit "/houses/#{@tenzin}"
 
-      expect(current_path).to eq('/neighborhoods/new')
 
-      fill_in 'name', with: 'Sunrise'
-      select true, :from => 'has_pool'
-      fill_in 'Number of streets', with: 23
+      click_link "Update #{@tenzin.family_name}"
 
-      click_on 'Create Neighborhood'
-      
-      expect(current_path).to eq('/neighborhoods')
-      expect(page).to have_content('Sunrise')
-      end
+      expect(current_path).to eq("/houses/#{@tenzin.family_name}/edit")
+
+      fill_in :family_name, with: 'Tenzin Dowis'
+
+      click_on 'Sumbit updates for House'
+
+      expect(current_path).to eq("/houses/#{@tenzin}")
+
+      expect(page).to have_content('Tenzin Dowis')
     end
   end
+end
 end
