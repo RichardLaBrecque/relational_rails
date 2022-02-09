@@ -93,9 +93,9 @@ describe 'Update a neighborhood' do
 
     it 'can update an existing neighborhood' do
       visit '/neighborhoods'
+      save_and_open_page
 
       click_link "Update #{@hood_3.name} Information"
-
       expect(current_path).to eq("/neighborhoods/#{@hood_3.id}/edit")
 
     end
