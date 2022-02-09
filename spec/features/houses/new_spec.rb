@@ -46,7 +46,7 @@ describe 'Add a new house' do
       fill_in :neighborhood_id, with: @hood_2.id
 
       click_on 'Create New House'
-save_and_open_page
+
       expect(current_path).to eq("/neighborhoods/#{@hood_2.id}/houses")
       expect(page).to have_content('Lollipop')
       end

@@ -34,20 +34,20 @@ describe 'Update a house' do
     end
 
     it 'can update an existing house' do
-      visit "/houses/#{@tenzin}"
+      visit "/houses/#{@tenzin.id}"
 
 
-      click_link "Update #{@tenzin.family_name}"
+      click_link "Update House Information"
 
-      expect(current_path).to eq("/houses/#{@tenzin.family_name}/edit")
+      expect(current_path).to eq("/houses/#{@tenzin.id}/edit")
 
-      fill_in :family_name, with: 'Tenzin Dowis'
+      fill_in :family_name, with: 'Casey Dowis'
 
       click_on 'Sumbit updates for House'
 
-      expect(current_path).to eq("/houses/#{@tenzin}")
+      expect(current_path).to eq("/houses/#{@tenzin.id}")
 
-      expect(page).to have_content('Tenzin Dowis')
+      expect(page).to have_content('Casey Dowis')
     end
   end
 end

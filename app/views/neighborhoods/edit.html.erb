@@ -1,5 +1,5 @@
 <%= form_with url: "/neighborhoods/#{@neighborhood.id}", method: :patch, local: true do |form| %>
-  <%= form.label :name %>
+  <%= form.label :name, "Name "%>
   <%= form.text_field :name %>
 
   <%= form.label :has_pool, "The neighborhood has a pool: " %>

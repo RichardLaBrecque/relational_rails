@@ -18,7 +18,7 @@ class NeighborhoodsController < ApplicationController
   def update
     neighborhood = Neighborhood.find(params[:id])
     neighborhood.update(neighborhood_params)
-    redirect_to "/neighborhoods/#{neighborhoodid}"
+    redirect_to "/neighborhoods/#{neighborhood.id}"
   end
 
   def create
@@ -27,7 +27,7 @@ class NeighborhoodsController < ApplicationController
   end
 
   private
-  def neighborhood_params
-    params.permit(:name, :has_pool, :number_of_streets)
-  end
+    def neighborhood_params
+      params.permit(:name, :has_pool, :number_of_streets)
+    end
 end
