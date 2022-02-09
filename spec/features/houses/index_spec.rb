@@ -4,6 +4,11 @@
 # When I visit '/child_table_name'
 # Then I see each Child in the system including the Child's attributes:
 
+# User Story 15, Child Index only shows `true` Records (x2)
+#
+# As a visitor
+# When I visit the child index
+# Then I only see records where the boolean column is `true
 
 require 'rails_helper'
 RSpec.describe 'Houses #index', type: :feature do
@@ -29,7 +34,7 @@ RSpec.describe 'Houses #index', type: :feature do
 
   it "will list all homes and their attributes" do
     visit '/houses'
-
+save_and_open_page
     expect(page).to have_content(@dowis.family_name)
     expect(page).to have_content(@dowis.hos_member)
     expect(page).to have_content(@dowis.parking_spaces)
@@ -58,12 +63,12 @@ RSpec.describe 'Houses #index', type: :feature do
     expect(page).to have_content(@sasha.created_at)
     expect(page).to have_content(@sasha.updated_at)
 
-    expect(page).to have_content(@john.family_name)
-    expect(page).to have_content(@john.hos_member)
-    expect(page).to have_content(@john.parking_spaces)
-    expect(page).to have_content(@john.neighborhood_id)
-    expect(page).to have_content(@john.created_at)
-    expect(page).to have_content(@john.updated_at)
+    expect(page).not_to have_content(@john.family_name)
+    expect(page).not_to have_content(@john.hos_member)
+    expect(page).not_to have_content(@john.parking_spaces)
+    expect(page).not_to have_content(@john.neighborhood_id)
+    expect(page).not_to have_content(@john.created_at)
+    expect(page).not_to have_content(@john.updated_at)
 
     expect(page).to have_content(@tamara.family_name)
     expect(page).to have_content(@tamara.hos_member)
@@ -86,19 +91,19 @@ RSpec.describe 'Houses #index', type: :feature do
     expect(page).to have_content(@tenzin.created_at)
     expect(page).to have_content(@tenzin.updated_at)
 
-    expect(page).to have_content(@sam.family_name)
-    expect(page).to have_content(@sam.hos_member)
-    expect(page).to have_content(@sam.parking_spaces)
-    expect(page).to have_content(@sam.neighborhood_id)
-    expect(page).to have_content(@sam.created_at)
-    expect(page).to have_content(@sam.updated_at)
+    expect(page).not_to have_content(@sam.family_name)
+    expect(page).not_to have_content(@sam.hos_member)
+    expect(page).not_to have_content(@sam.parking_spaces)
+    expect(page).not_to have_content(@sam.neighborhood_id)
+    expect(page).not_to have_content(@sam.created_at)
+    expect(page).not_to have_content(@sam.updated_at)
 
-    expect(page).to have_content(@lemon.family_name)
-    expect(page).to have_content(@lemon.hos_member)
-    expect(page).to have_content(@lemon.parking_spaces)
-    expect(page).to have_content(@lemon.neighborhood_id)
-    expect(page).to have_content(@lemon.created_at)
-    expect(page).to have_content(@lemon.updated_at)
+    expect(page).not_to have_content(@lemon.family_name)
+    expect(page).not_to have_content(@lemon.hos_member)
+    expect(page).not_to have_content(@lemon.parking_spaces)
+    expect(page).not_to have_content(@lemon.neighborhood_id)
+    expect(page).not_to have_content(@lemon.created_at)
+    expect(page).not_to have_content(@lemon.updated_at)
   end
 
 end
