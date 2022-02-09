@@ -25,11 +25,11 @@ RSpec.describe 'Contractors client index' do
                                     licensed: true,
                                     service_cost: 55,
                                     service_area: 4)
-    @client_1 = @contractor_1.clients.create!(name: 'Dani', recent_visit: true, required_visits_per_year: 2)
+    @client_1 = @contractor_1.clients.create!(name: 'Zack', recent_visit: true, required_visits_per_year: 2)
     @client_2 = @contractor_2.clients.create!(name: 'Lisa', recent_visit: true, required_visits_per_year: 1)
     @client_3 = @contractor_3.clients.create!(name: 'Sam', recent_visit: true, required_visits_per_year: 3)
     @client_4 = @contractor_4.clients.create!(name: 'Joe', recent_visit: true, required_visits_per_year: 4)
-    @client_5 = @contractor_1.clients.create!(name: 'Ian', recent_visit: true, required_visits_per_year: 5)
+    @client_5 = @contractor_1.clients.create!(name: 'Anna', recent_visit: true, required_visits_per_year: 5)
     @client_6 = @contractor_2.clients.create!(name: 'Greg', recent_visit: true, required_visits_per_year: 3)
     @client_7 = @contractor_3.clients.create!(name: 'Jesse', recent_visit: true, required_visits_per_year: 4)
     @client_8 = @contractor_4.clients.create!(name: 'Katy', recent_visit: true, required_visits_per_year: 3)
@@ -50,5 +50,26 @@ RSpec.describe 'Contractors client index' do
     expect(page).to have_content(@client_5.contractor_id)
     expect(page).to have_content(@client_5.updated_at)
     expect(page).to have_content(@client_5.created_at)
+  end
+
+#   User Story 16, Sort Parent's Children in Alphabetical Order by name (x2)
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# Then I see a link to sort children in alphabetical order
+# When I click on the link
+# I'm taken back to the Parent's children Index Page where I see all of the parent's children in alphabetical order
+
+  it 'can sort alphabetically' do
+    visit "/contractors/#{@contractor_1.id}/clients"
+    click_on "Alphabetical Order"
+    expect(current_path).to eq("/contractors/#{@contractor_1.id}/clients")
+  end
+
+  it 'displays alphabetical sort' do
+    visit "/contractors/#{@contractor_1.id}/clients"
+    click_on "Alphabetical Order"
+    save_and_open_page
+    expect(@client_5.name).to appear_before(@client_1.name)
   end
 end

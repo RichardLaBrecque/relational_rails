@@ -20,4 +20,5 @@ Rails.application.routes.draw do
   patch '/contractors/:id', to: 'contractors#update'
   get '/clients/:id', to: 'clients#show'
   patch '/clients/:id', to: 'clients#update'
+  get '/contractors/:id/clients/sort', to: 'contractor_clients#sort'
 end

@@ -1,8 +1,12 @@
 class ContractorClientsController < ApplicationController
   def index
-    #binding.pry
     @contractor = Contractor.find(params[:id])
-    @clients = @contractor.clients
+    if params[:sort] == "name"
+      @clients = @contractor.clients.order(:name)
+      #binding.pry
+    else
+      @clients = @contractor.clients
+    end
   end
 
   def new
@@ -20,4 +24,7 @@ class ContractorClientsController < ApplicationController
     client.save
     redirect_to "/contractors/#{contractor.id}/clients"
   end
+
+
+
 end
