@@ -1,0 +1,15 @@
+<%= form_with url: "/neighborhoods/#{@neighborhood.id}/houses", method: :post, local: true do |form| %>
+  <%= form.label "Family Name" %>
+  <%= form.text_field :family_name %>
+
+  <%= form.label :hos_member, "Family is a HOA menmer: " %>
+  <%= form.select :hos_member, [true, false] %>
+
+  <%= form.label "Number of parking spaces" %>
+  <%= form.number_field :parking_spaces %>
+
+  <%= form.label "Neighborhood id" %>
+  <%= form.number_field :neighborhood_id %>
+
+  <%= form.submit 'Create New House' %>
+  <% end %>

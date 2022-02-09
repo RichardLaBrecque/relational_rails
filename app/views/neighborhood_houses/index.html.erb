@@ -1,0 +1,13 @@
+<h1>Neighborhood Name: <%= @neighborhood.name %></h1>
+<p>Neighborhood ID: <%= @neighborhood.id %></p>
+<% @neighborhood_houses.each do |house| %>
+<h3>Family Name: <%= house.family_name %></h3>
+<p>House ID: <%= house.id %></p>
+<p>Homeowners Associtation Member: <%= house.hos_member %></p>
+<p>Number of parking spaces: <%= house.parking_spaces %></p>
+<p>Neighborhood Name: <%= house.neighborhood.name %></p>
+<p>Neighborhood ID: <%= house.neighborhood_id %></p>
+<p>Date listing created: <%= house.created_at %></p>
+<p>Date listing last updated: <%= house.updated_at %></p>
+<% end %>
+<p><%= link_to "Create New House Listing", "/neighborhoods/#{@neighborhood.id}/houses/new" %></p>
