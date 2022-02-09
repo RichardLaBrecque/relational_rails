@@ -26,7 +26,7 @@ describe 'Delete a neighborhood' do
       visit "/neighborhoods/#{@hood_4.id}"
 
 
-      click_link "Delete #{@hood_4.name}"
+      click_button "Delete #{@hood_4.name}"
 
       expect(current_path).to eq("/neighborhoods/#{@hood_4.id}")
       expect(page).to_not have_content(@hood_4.name)
