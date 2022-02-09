@@ -10,6 +10,14 @@
 # When I visit the child index
 # Then I only see records where the boolean column is `true
 
+# User Story 18, Child Update From Childs Index Page (x1)
+#
+# As a visitor
+# When I visit the `child_table_name` index page or a parent `child_table_name` index page
+# Next to every child, I see a link to edit that child's info
+# When I click the link
+# I should be taken to that `child_table_name` edit page where I can update its information just like in User Story 11
+
 require 'rails_helper'
 RSpec.describe 'Houses #index', type: :feature do
 
@@ -82,9 +90,9 @@ RSpec.describe 'Houses #index', type: :feature do
   end
 end
 
-RSpec.describe 'Update Neighborhood', type: :feature do
-describe 'Update a neighborhood' do
-    describe 'I can visit the neighborhood update form by clicking a link on the neighborhood#index' do
+RSpec.describe 'Update Houses', type: :feature do
+describe 'Update a house' do
+    describe 'I can visit the house update form by clicking a link on the house#index' do
 
     before :each do
       @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
@@ -105,7 +113,7 @@ describe 'Update a neighborhood' do
      @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
     end
 
-    it 'can update an existing neighborhood' do
+    it 'can update an existing house' do
 
       visit '/houses'
       click_link "Update #{@fleur.family_name} Information"
@@ -113,7 +121,7 @@ describe 'Update a neighborhood' do
       expect(current_path).to eq("/houses/#{@fleur.id}/edit")
     end
 
-    it 'can update an existing neighborhood' do
+    it 'can update an existing house' do
 
       visit "/neighborhoods/#{@hood_2.id}/houses"
       click_link "Update #{@sasha.family_name} Information"
