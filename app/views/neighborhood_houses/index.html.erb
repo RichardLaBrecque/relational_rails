@@ -11,3 +11,4 @@
 <p>Date listing last updated: <%= house.updated_at %></p>
 <% end %>
 <p><%= link_to "Create New House Listing", "/neighborhoods/#{@neighborhood.id}/houses/new" %></p>
+<p><%= link_to "Sort houses in alphabetical order", "/neighborhoods/#{@neighborhood.id}/houses?sort=name" %></p>
