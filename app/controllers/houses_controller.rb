@@ -1,6 +1,6 @@
 class HousesController < ApplicationController
   def index
-    @houses = House.all
+    @houses = House.where(hos_member: 'true')
   end
 
   def new
