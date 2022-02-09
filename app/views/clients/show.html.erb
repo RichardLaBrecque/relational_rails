@@ -6,4 +6,5 @@
 <p>Created: <%= @client.created_at %></p>
 <p>Last update: <%= @client.updated_at %></p>
 <%= link_to "Update Client", "/clients/#{@client.id}/edit" %>
+<%= link_to "Delete #{@client.name}", "/clients/#{@client.id}", method: :delete  %>
 <!-- <p><%= @client.contractor.name %></p> -->

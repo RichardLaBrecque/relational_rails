@@ -23,4 +23,10 @@ class ClientsController < ApplicationController
         client.save
         redirect_to '/clients'
   end
+
+  def delete
+    client = Client.find(params[:id])
+    client.destroy
+    redirect_to '/clients'
+  end
 end
