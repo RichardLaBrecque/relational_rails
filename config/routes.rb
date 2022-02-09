@@ -18,7 +18,15 @@ Rails.application.routes.draw do
 
   get '/contractors', to: 'contractors#index'
   get '/clients', to: 'clients#index'
-  get '/clients/:id', to: 'clients#show'
-  get '/contractors/:id', to: 'contractors#show'
+  get '/contractors/new', to: 'contractors#new'
   get "/contractors/:id/clients", to: 'contractor_clients#index'
+  post '/contractors', to: 'contractors#create'
+  get '/contractors/:id/clients/new', to: 'contractor_clients#new'
+  get '/contractors/:id/edit', to: 'contractors#edit'
+  post '/contractors/:id/clients', to: 'contractor_clients#create'
+  get '/clients/:id/edit', to: 'clients#edit'
+  get '/contractors/:id', to: 'contractors#show'
+  patch '/contractors/:id', to: 'contractors#update'
+  get '/clients/:id', to: 'clients#show'
+  patch '/clients/:id', to: 'clients#update'
 end

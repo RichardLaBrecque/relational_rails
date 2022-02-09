@@ -8,3 +8,6 @@
 <p>Last update:<%= client.updated_at %></p>
 <p>Client since:<%= client.created_at %></p>
 <%end%>
+
+<%= link_to "Create Client", "/contractors/#{@contractor.id}/clients/new" %>
+<%= link_to "Alphabetical Order", "/contractors/#{@contractor.id}/clients?sort=name" %>

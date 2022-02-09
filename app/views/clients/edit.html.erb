@@ -1,0 +1,9 @@
+<%= form_with url: "/clients/#{@client.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, :value => @client.name %>
+  <%= form.label :recent_visit %>
+  <%= form.text_field :recent_visit, :value => @client.recent_visit %>
+  <%= form.label :required_visits_per_year %>
+  <%= form.text_field :required_visits_per_year, :value => @client.required_visits_per_year %>
+  <%= form.submit 'Update Client' %>
+<% end %>

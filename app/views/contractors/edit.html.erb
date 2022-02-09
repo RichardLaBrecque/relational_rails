@@ -1,0 +1,11 @@
+<%= form_with url: "/contractors/#{@contractor.id}", method: :patch, local: true do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name, :value => @contractor.name %>
+  <%= form.label :licensed %>
+  <%= form.text_field :licensed, :value => @contractor.licensed %>
+  <%= form.label :service_cost %>
+  <%= form.text_field :service_cost, :value => @contractor.service_cost %>
+  <%= form.label :service_area %>
+  <%= form.text_field :service_area, :value => @contractor.service_area %>
+  <%= form.submit 'Update Contractor' %>
+<% end %>

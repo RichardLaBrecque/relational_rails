@@ -6,3 +6,4 @@
 <p>Created: <%= @contractor.created_at %></p>
 <p>Last update: <%= @contractor.updated_at %></p>
 <p> client count: <%= @contractor.clients.count %></p>
+<%= link_to "Update Contractor", "/contractors/#{@contractor.id}/edit" %>
