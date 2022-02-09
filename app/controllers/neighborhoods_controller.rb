@@ -18,7 +18,7 @@ class NeighborhoodsController < ApplicationController
   def update
     neighborhood = Neighborhood.find(params[:id])
     neighborhood.update(neighborhood_params)
-    redirect_to "/neighborhoods/#{neighborhood.id}"
+    redirect_to "/neighborhoods/#{neighborhoodid}"
   end
 
   def create

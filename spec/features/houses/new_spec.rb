@@ -36,13 +36,14 @@ describe 'Add a new house' do
     it 'can create a new house' do
       visit "/neighborhoods/#{@hood_2.id}/houses"
 
-      click_link 'Create House'
+      click_link 'Create New House Listing'
 
       expect(current_path).to eq("/neighborhoods/#{@hood_2.id}/houses/new")
 
-      fill_in 'family_name:', with: 'Lollipop'
+      fill_in :family_name, with: 'Lollipop'
       select false, :from => 'hos_member'
-      fill_in 'parking_spaces', with: 1
+      fill_in :parking_spaces, with: 1
+      fill_in :neighborhood_id, with: @hood_2.id
 
       click_on 'Create New House'
 

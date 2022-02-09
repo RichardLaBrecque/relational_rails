@@ -9,7 +9,9 @@ Rails.application.routes.draw do
   patch '/neighborhoods/:id', to: 'neighborhoods#update'
   get '/houses/:id', to:'houses#show'
   get '/neighborhoods/:neighborhood_id/houses', to: 'neighborhood_houses#index'
+  get '/neighborhoods/:neighborhood_id/houses/new', to: 'neighborhood_houses#new'
   post '/neighborhoods', to:'neighborhoods#create'
+  post '/neighborhoods/:neighborhood_id/houses', to:'neighborhood_houses#create'
 
   get '/contractors', to: 'contractors#index'
   get '/clients', to: 'clients#index'

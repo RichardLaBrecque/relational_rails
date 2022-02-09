@@ -10,3 +10,4 @@
 <p>Date listing created: <%= house.created_at %></p>
 <p>Date listing last updated: <%= house.updated_at %></p>
 <% end %>
+<p><%= link_to "Create New House Listing", "/neighborhoods/#{@neighborhood.id}/houses/new" %></p>
