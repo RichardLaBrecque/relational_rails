@@ -20,7 +20,6 @@ class HousesController < ApplicationController
   end
 
   def update
-    # require "pry"; binding.pry
     house = House.find(params[:id])
     house.update(house_params)
     redirect_to "/houses/#{house.id}"
