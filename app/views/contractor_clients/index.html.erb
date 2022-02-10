@@ -1,5 +1,9 @@
 <h1> <%=@contractor.name%>'s Clients List</h1>
-
+<%= form_with url: "/contractors/#{@contractor.id}/clients", method: :get, local: true do |form| %>
+<%= form.label :limit %>
+<%= form.text_field :limit %>
+<%= form.submit "Limit return" %>
+<% end %>
 <p><% @clients.each do |client| %></p>
 <p><h2>Client name: <%= client.name %></h2></p>
 <p>Recent visit: <%= client.recent_visit %></p>
