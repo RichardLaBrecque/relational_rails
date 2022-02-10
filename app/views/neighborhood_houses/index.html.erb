@@ -1,4 +1,9 @@
 <h1>Neighborhood Name: <%= @neighborhood.name %></h1>
+<%= form_with url: "/neighborhoods/#{@neighborhood.id}/house", method: :get, local: true do |form| %>
+<%= form.label :limit %>
+<%= form.text_field :limit %>
+<%= form.submit "Filter return" %>
+<% end %>
 <p>Neighborhood ID: <%= @neighborhood.id %></p>
 <% @neighborhood_houses.each do |house| %>
 <h3>Family Name: <%= house.family_name %></h3>
@@ -10,6 +15,7 @@
 <p>Date listing created: <%= house.created_at %></p>
 <p>Date listing last updated: <%= house.updated_at %></p>
 <h5><%= link_to "Update #{house.family_name} Information", "/houses/#{house.id}/edit" %></h5>
+
 <% end %>
 <p><%= link_to "Create New House Listing", "/neighborhoods/#{@neighborhood.id}/houses/new" %></p>
 <p><%= link_to "Sort houses in alphabetical order", "/neighborhoods/#{@neighborhood.id}/houses?sort=name" %></p>

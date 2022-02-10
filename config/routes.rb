@@ -14,7 +14,8 @@ Rails.application.routes.draw do
   get '/neighborhoods/:neighborhood_id/houses/new', to: 'neighborhood_houses#new'
   post '/neighborhoods', to:'neighborhoods#create'
   post '/neighborhoods/:neighborhood_id/houses', to:'neighborhood_houses#create'
-  delete '/neighborhoods/:neighborhood_id', to:'neighborhoods#destroy'
+  delete '/neighborhoods/:id', to:'neighborhoods#destroy'
+  delete '/houses/:id', to:'houses#destroy'
 
   get '/contractors', to: 'contractors#index'
   get '/clients', to: 'clients#index'
