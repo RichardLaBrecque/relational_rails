@@ -7,4 +7,6 @@
 <p>Date listing created: <%= house.created_at %></p>
 <p>Date listing last updated: <%= house.updated_at %></p>
 <h5><%= link_to "Update #{house.family_name} Information", "/houses/#{house.id}/edit" %></h5>
+<p><%= link_to "Delete #{@house.family_name}", "/houses/#{@house.id}", method: :delete %></p>
+
 <% end %>
