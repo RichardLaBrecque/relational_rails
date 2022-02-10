@@ -1,7 +1,17 @@
+# User Story 20, Child Delete (x2)
+#
+# As a visitor
+# When I visit a child show page
+# Then I see a link to delete the child "Delete Child"
+# When I click the link
+# Then a 'DELETE' request is sent to '/child_table_name/:id',
+# the child is deleted,
+# and I am redirected to the child index page where I no longer see this child
+
 require 'rails_helper'
-RSpec.describe 'Delete Neighborhood', type: :feature do
-describe 'Delete a neighborhood' do
-    describe 'I can visit the neighborhood show page and delete the neighborhood by clicking the delete button' do
+RSpec.describe 'Delete Houses', type: :feature do
+describe 'Delete a house' do
+    describe 'I can visit the houses show page and delete the house by clicking the delete button' do
 
       before :each do
         @hood_1 = Neighborhood.create!(name: 'Happy', has_pool: true, number_of_streets: 17)
@@ -22,15 +32,14 @@ describe 'Delete a neighborhood' do
          @lemon = @hood_5.houses.create!(family_name: 'Lemon', hos_member: false, parking_spaces: 2)
       end
 
-    it 'can delete an existing neighborhood' do
-      visit "/neighborhoods/#{@hood_4.id}"
+    it 'can delete an existing house' do
+      visit "/houses/#{@ann.id}"
 
 
-      click_link "Delete #{@hood_4.name}"
+      click_link "Delete #{@ann.family_name}"
 
-      expect(current_path).to eq("/neighborhoods")
-      expect(page).to_not have_content(@hood_4.name)
-      expect(page).to_not have_button('Delete')
+      expect(current_path).to eq("/houses")
+      expect(page).to_not have_content(@ann.family_name)
     end
   end
 end
