@@ -30,4 +30,6 @@ Rails.application.routes.draw do
   patch '/contractors/:id', to: 'contractors#update'
   get '/clients/:id', to: 'clients#show'
   patch '/clients/:id', to: 'clients#update'
+  delete '/contractors/:id', to: 'contractors#delete'
+  delete '/clients/:id', to: 'clients#delete'
 end

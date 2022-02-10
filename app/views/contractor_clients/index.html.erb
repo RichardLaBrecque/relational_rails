@@ -1,5 +1,9 @@
 <h1> <%=@contractor.name%>'s Clients List</h1>
-
+<%= form_with url: "/contractors/#{@contractor.id}/clients", method: :get, local: true do |form| %>
+<%= form.label :limit %>
+<%= form.text_field :limit %>
+<%= form.submit "Limit return" %>
+<% end %>
 <p><% @clients.each do |client| %></p>
 <p><h2>Client name: <%= client.name %></h2></p>
 <p>Recent visit: <%= client.recent_visit %></p>
@@ -7,6 +11,7 @@
 <p>Contractor used:<%= client.contractor_id %></p>
 <p>Last update:<%= client.updated_at %></p>
 <p>Client since:<%= client.created_at %></p>
+<%= link_to "Delete #{client.name}", "/clients/#{client.id}", method: :delete  %>
 <%end%>
 
 <%= link_to "Create Client", "/contractors/#{@contractor.id}/clients/new" %>

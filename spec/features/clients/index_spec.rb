@@ -60,23 +60,35 @@ RSpec.describe 'Client index page' do
     click_on "Update #{@client_1.name}"
     expect(current_path).to eq("/clients/#{@client_1.id}/edit")
   end
-  #where to locate this test
-  # it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
-  #   visit '/contractors'
-  #   click_on 'Client List'
-  #   expect(current_path).to eq('/clients')
-  # end
-  #
-  # it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
-  #   visit "/contractors/#{@contractor_1.id}"
-  #   click_on 'Client List'
-  #   expect(current_path).to eq('/clients')
-  # end
-  #
-  # it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
-  #   visit "/clients/#{@client_1.id}"
-  #   click_on 'Client List'
-  #   expect(current_path).to eq('/clients')
-  # end
+
+#   User Story 21, Display Records Over a Given Threshold (x2)
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# I see a form that allows me to input a number value
+# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+# Then I am brought back to the current index page with only the records that meet that threshold shown.
+  it 'limits clients by visits per year form' do
+    visit "/contractors/#{@contractor_1.id}/clients"
+    fill_in 'limit', with: 4
+    click_on 'Limit return'
+    expect(current_path).to eq("/contractors/#{@contractor_1.id}/clients")
+    expect(page).to have_content(@client_5.name)
+    expect(page).to_not have_content(@client_4.name)
+  end
+
+#   User Story 23, Child Delete From Childs Index Page (x1)
+#
+# As a visitor
+# When I visit the `child_table_name` index page or a parent `child_table_name` index page
+# Next to every child, I see a link to delete that child
+# When I click the link
+# I should be taken to the `child_table_name` index page where I no longer see that child
+  it 'has a delete link in the client index' do
+    visit "/clients"
+    click_on "Delete #{@client_1.name}"
+    expect(current_path).to eq("/clients")
+    expect(page).to_not have_content(@client_1.name)
+  end
 
 end

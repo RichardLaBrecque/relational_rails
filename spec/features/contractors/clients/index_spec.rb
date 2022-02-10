@@ -69,7 +69,13 @@ RSpec.describe 'Contractors client index' do
   it 'displays alphabetical sort' do
     visit "/contractors/#{@contractor_1.id}/clients"
     click_on "Alphabetical Order"
-    save_and_open_page
-    expect(@client_5.name).to appear_before(@client_.name)
+    expect(@client_5.name).to appear_before(@client_1.name)
+  end
+
+  it 'has a delete link in the client index and contractors/client index' do
+    visit "/contractors/#{@contractor_1.id}/clients"
+    click_on "Delete #{@client_1.name}"
+    expect(current_path).to eq("/clients")
+    expect(page).to_not have_content(@client_1.name)
   end
 end

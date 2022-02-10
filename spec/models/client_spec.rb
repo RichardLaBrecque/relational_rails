@@ -1,12 +1,14 @@
 require 'spec_helper'
 
 RSpec.describe Client, type: :model do
+  before(:each) do
+    @client = Client.new
+  end
   it 'exists' do
-    client = Client.new
-    expect(client).to be_a(Client)
+    expect(@client).to be_a(Client)
   end
 
-  it {should belong_to :contractors}
+  it {should belong_to :contractor}
 
   # describe "validations" do
   #   it {should validate_presense_of :name}

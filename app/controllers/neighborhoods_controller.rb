@@ -22,6 +22,7 @@ class NeighborhoodsController < ApplicationController
   end
 
   def destroy
+
     neighborhood = Neighborhood.find(params[:id])
     neighborhood.houses.destroy_all
     neighborhood.destroy
