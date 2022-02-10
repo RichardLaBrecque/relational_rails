@@ -1,9 +1,12 @@
 class ContractorClientsController < ApplicationController
   def index
+    #binding.pry
     @contractor = Contractor.find(params[:id])
     if params[:sort] == "name"
       @clients = @contractor.clients.order(:name)
       #binding.pry
+    elsif params[:limit] != nil
+      @clients = @contractor.clients.where("required_visits_per_year > #{params[:limit]}")
     else
       @clients = @contractor.clients
     end

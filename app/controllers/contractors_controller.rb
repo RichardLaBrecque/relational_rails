@@ -43,4 +43,12 @@ class ContractorsController < ApplicationController
       redirect_to '/contractors'
 
   end
+
+  def delete
+    contractor = Contractor.find(params[:id])
+    contractor.clients.destroy_all
+    contractor.destroy
+    # binding.pry
+    redirect_to '/contractors'
+  end
 end

@@ -4,6 +4,9 @@ class NeighborhoodHousesController < ApplicationController
     @neighborhood = Neighborhood.find(params[:neighborhood_id])
     if params[:sort] == "name"
       @neighborhood_houses = @neighborhood.houses.order(:family_name)
+    elsif
+      if params[:limit] != nil
+        @neighborhood_houses = @neighborhood.houses.where ("parking_spaces > #{params[:limit]}")
     else
       @neighborhood_houses = @neighborhood.houses
     end

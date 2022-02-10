@@ -5,6 +5,22 @@
 # When I visit '/parents/:parent_id/child_table_name'
 # Then I see each Child that is associated with that Parent with each Child's attributes
 
+# User Story 21, Display Records Over a Given Threshold (x2)
+#
+# As a visitor
+# When I visit the Parent's children Index Page
+# I see a form that allows me to input a number value
+# When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
+# Then I am brought back to the current index page with only the records that meet that threshold shown.
+
+# User Story 22, Parent Delete From Parent Index Page (x1)
+#
+# As a visitor
+# When I visit the parent index page
+# Next to every parent, I see a link to delete that parent
+# When I click the link
+# I am returned to the Parent Index Page where I no longer see that parent
+
 
 require 'rails_helper'
 RSpec.describe 'Neighboorhood houses #index', type: :feature do
@@ -152,6 +168,27 @@ RSpec.describe 'Neighboorhood houses #index', type: :feature do
     expect(page).to have_content(@lemon.neighborhood_id)
     expect(page).to have_content(@lemon.created_at)
     expect(page).to have_content(@lemon.updated_at)
+  end
+
+  # it 'can sort by a value' do
+  #   visit
+  #  expect().to eq()
+  # end
+
+  it 'Parent Delete From Parent Index Page' do
+    visit '/neighborhoods'
+
+    expect(page).to have_content(@hood_1.name)
+    expect(page).to have_content(@hood_2.name)
+    expect(page).to have_content(@hood_3.name)
+    expect(page).to have_content(@hood_4.name)
+    expect(page).to have_content(@hood_5.name)
+
+    click_link "Delete #{@hood_4.name}"
+
+    expect(current_path).to eq("/neighborhoods")
+    expect(page).to_not have_content(@hood_4.name)
+
   end
 
 end

@@ -70,23 +70,19 @@ RSpec.describe 'contractors index page' do
     expect(current_path).to eq("/contractors/#{@contractor_1.id}/edit")
   end
 
-  # it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
-  #   visit '/contractors'
-  #   click_on 'Contractor List'
-  #   expect(current_path).to eq('/contractors')
-  # end
-  #
-  # it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
-  #   visit "/contractors/#{@contractor_1.id}"
-  #   click_on 'Contractor List'
-  #   expect(current_path).to eq('/contractors')
-  # end
-  #
-  # it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
-  #   visit "/clients/#{@client_1.id}"
-  #   click_on 'Contractor List'
-  #   expect(current_path).to eq('/contractors')
-  # end
-
+#   User Story 22, Parent Delete From Parent Index Page (x1)
+#
+# As a visitor
+# When I visit the parent index page
+# Next to every parent, I see a link to delete that parent
+# When I click the link
+# I am returned to the Parent Index Page where I no longer see that parent
+  it 'has a delete link next to contractors' do
+    visit '/contractors'
+    expect(page).to have_content(@contractor_1.name)
+    click_on "Delete #{@contractor_1.name}"
+    expect(current_path).to eq('/contractors')
+    expect(page).to_not have_content(@contractor_1.name)
+  end
 
 end
