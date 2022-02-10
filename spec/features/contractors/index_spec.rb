@@ -85,23 +85,4 @@ RSpec.describe 'contractors index page' do
     expect(page).to_not have_content(@contractor_1.name)
   end
 
-  # it 'has a navigation bar on the top of the neighborhoods page that links to the houses#index' do
-  #   visit '/contractors'
-  #   click_on 'Contractor List'
-  #   expect(current_path).to eq('/contractors')
-  # end
-  #
-  # it 'has a navigation bar on the top of the neighborhoods/:id page that links to the houses#index' do
-  #   visit "/contractors/#{@contractor_1.id}"
-  #   click_on 'Contractor List'
-  #   expect(current_path).to eq('/contractors')
-  # end
-  #
-  # it 'has a navigation bar on the top of the houses/:id page that links to the houses#index' do
-  #   visit "/clients/#{@client_1.id}"
-  #   click_on 'Contractor List'
-  #   expect(current_path).to eq('/contractors')
-  # end
-
-
 end
