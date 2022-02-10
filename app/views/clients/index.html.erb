@@ -8,4 +8,5 @@
 <p>Last update:<%= client.updated_at %></p>
 <p>Client since:<%= client.created_at %></p>
 <<p><%= link_to "Update #{client.name}", "/clients/#{client.id}/edit" %></p>
+<%= link_to "Delete #{client.name}", "/clients/#{client.id}", method: :delete  %>
 <%end%>
