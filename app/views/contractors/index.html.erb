@@ -3,6 +3,7 @@
   <h3> Contractor:<%= contractor.name %> Created at: <%= contractor.created_at %></h3>
 
   <p><%= link_to "Update #{contractor.name}", "/contractors/#{contractor.id}/edit" %></p>
+    <%= link_to "Delete #{contractor.name}", "/contractors/#{contractor.id}", method: :delete %>
 <%end%>
 
 <%= link_to "New Contractor", '/contractors/new' %>
