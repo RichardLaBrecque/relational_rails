@@ -13,6 +13,14 @@
 # When I input a number value and click the submit button that reads 'Only return records with more than `number` of `column_name`'
 # Then I am brought back to the current index page with only the records that meet that threshold shown.
 
+# User Story 22, Parent Delete From Parent Index Page (x1)
+#
+# As a visitor
+# When I visit the parent index page
+# Next to every parent, I see a link to delete that parent
+# When I click the link
+# I am returned to the Parent Index Page where I no longer see that parent
+
 
 require 'rails_helper'
 RSpec.describe 'Neighboorhood houses #index', type: :feature do
@@ -162,9 +170,25 @@ RSpec.describe 'Neighboorhood houses #index', type: :feature do
     expect(page).to have_content(@lemon.updated_at)
   end
 
-  it 'can sort by a value' do
-    visit 
-   expect().to eq()
+  # it 'can sort by a value' do
+  #   visit
+  #  expect().to eq()
+  # end
+
+  it 'Parent Delete From Parent Index Page' do
+    visit '/neighborhoods'
+
+    expect(page).to have_content(@hood_1.name)
+    expect(page).to have_content(@hood_2.name)
+    expect(page).to have_content(@hood_3.name)
+    expect(page).to have_content(@hood_4.name)
+    expect(page).to have_content(@hood_5.name)
+
+    click_link "Delete #{@hood_4.name}"
+
+    expect(current_path).to eq("/neighborhoods")
+    expect(page).to_not have_content(@hood_4.name)
+
   end
 
 end

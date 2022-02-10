@@ -4,6 +4,8 @@
 
  <h3><%= neighborhood.name %>: created at: <%= neighborhood.created_at %></h3>
  <h5><%= link_to "Update #{neighborhood.name} Information", "/neighborhoods/#{neighborhood.id}/edit" %></h5>
+ <p><%= link_to "Delete #{neighborhood.name}", "/neighborhoods/#{neighborhood.id}", method: :delete %></p>
+
  <% end %>
 
   <h3><%= link_to 'New Neighborhood', '/neighborhoods/new' %></h3>
